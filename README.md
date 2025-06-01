@@ -1,6 +1,12 @@
 # Telegram-Gifts
 Comprehensive reference for working with Telegram gifts
 
+## Gift Stats
+
+- [Telegram Gifts on Dune](https://dune.com/rdmcd/telegram-gifts)
+- [GiftStat.com](https://giftstat.com/)
+- [Gift Charts Bot](https://t.me/gift_charts_bot)
+
 ## Naming Formats
 1. Collection Name — Human-readable name used in descriptions
 2. GiftName — PascalCase, often used in telegram links 
@@ -69,11 +75,6 @@ Backdrop: Onyx Black 2%
 Symbol: Illuminati 0.5%
 Quantity: 2 815/2 861 issued
 ```
-
-## Gift Stats
-
-- 📊 [Telegram Gifts on Dune](https://dune.com/rdmcd/telegram-gifts)
-- 📈 [GiftStat.com](https://giftstat.com/)
 
 ---
 
