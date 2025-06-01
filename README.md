@@ -7,6 +7,12 @@ Comprehensive reference for working with Telegram gifts
 - [GiftStat.com](https://giftstat.com/)
 - [Gift Charts Bot](https://t.me/gift_charts_bot)
 
+## Floor Prices
+you can use these tools or other gift marketplaces to find floor price of a gift ( the actuall price could be different )
+- [Floor Price Stickers](https://t.me/addstickers/gift_by_tondesignrobot)
+- [NFT GIFT Calculator Bot](https://t.me/PriceNFTbot)
+- [Gifts Floor Calculator Bot](https://t.me/giftsfloorbot)
+
 ## Naming Formats
 1. Collection Name — Human-readable name used in descriptions
 2. GiftName — PascalCase, often used in telegram links 
