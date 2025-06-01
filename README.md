@@ -14,7 +14,7 @@ you can use these tools or other gift marketplaces to find floor price of a gift
 - [Gifts Floor Calculator Bot](https://t.me/giftsfloorbot)
 
 ## Naming Formats
-1. Collection Name — Human-readable name used in descriptions
+1. Gift Name — Human-readable name used in descriptions
 2. GiftName — PascalCase, often used in telegram links 
 3. giftname — Lowercase format used in URLs and paths
 
