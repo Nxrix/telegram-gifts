@@ -13,6 +13,10 @@ you can use these tools or other gift marketplaces to find floor price of a gift
 - [NFT GIFT Calculator Bot](https://t.me/PriceNFTbot)
 - [Gifts Floor Calculator Bot](https://t.me/giftsfloorbot)
 
+## Data
+- All Collections [Format1](./names.txt) [Format2](./names_fixed.txt)
+- [All Upgraded Plush Pepe gifts](./plushpepe.json)
+
 ## Naming Formats
 1. Gift Name — Human-readable name used in descriptions
 2. GiftName — PascalCase, often used in telegram links 
