@@ -213,20 +213,33 @@ const add_gift = (c,n) => {
   list.appendChild(gift);
 }
 
-const fix_filter = (i,l) => {
+const fix_filter = (i,l,c) => {
   l.forEach((e,n) => {
+    const v = c[n]||0;
     const opt = document.createElement("option");
     opt.value = n;
-    opt.textContent = e;
+    opt.textContent = `${e} (${v})`;
     i.appendChild(opt);
   });
 }
 
+const count_types = (g) => {
+  const mc = {}, bc = {}, sc = {};
+  g.trim().split("\n").forEach(l => {
+    const [i,m,b,s] = l.split(",").map(Number);
+    mc[m] = (mc[m]||0)+1;
+    bc[b] = (bc[b]||0)+1;
+    sc[s] = (sc[s]||0)+1;
+  });
+  return [mc,bc,sc];
+}
+
 const init = async () => {
   data = await(await fetch(name+".json")).json();
-  fix_filter(fmodel,data.models);
-  fix_filter(fbackdrop,data.backdrops);
-  fix_filter(fsymbol,data.symbols);
+  const [mc,bc,sc] = count_types(data.gifts);
+  fix_filter(fmodel,data.models,mc);
+  fix_filter(fbackdrop,data.backdrops,bc);
+  fix_filter(fsymbol,data.symbols,sc);
   [prev1,prev2].forEach(id => id.onclick = () => change_page(-1));
   [next1,next2].forEach(id => id.onclick = () => change_page(1));
   [pagei1,pagei2].forEach(id => {
