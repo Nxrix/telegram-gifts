@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telegram Gifts Database</title>
+</head>
+<style>
+
+body {
+  margin: 24px;
+}
+
+@font-face {
+  font-family: "sfr";
+  src: url("https://nxrix.github.io/assets/fonts/sf-pro-rounded.woff2");
+}
+
+* {
+  font-family: "sfr";
+}
+
+#list * {
+  font-weight: 600;
+}
+
+#filters, #controls1, #controls2 { margin: 10px 0; }
+#list { outline: 1px solid #ccc; padding: 10px; }
+.controls { display: flex; align-items: center; gap: 10px; }
+
+#list {
+  display: grid;
+  /*--fw: min(calc(100vw - 56px),980px);*/
+  --fw: calc(100vw - 68px);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+#list .item {
+  position: relative;
+  background-color: var(--md-sys-color-background);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 96%;
+  margin: 2%;
+  border-radius: calc(var(--font)/100*10);
+  font-size: 0;
+  text-decoration: none;
+  aspect-ratio: 1;
+}
+#list img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#list .q {
+  color: #333;
+  font-size: calc(var(--font)/100*8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: calc(var(--font)/100*10);
+  box-shadow: inset 0 0 0 2px #333;
+}
+#list .id {
+  background-color: #0023;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 45%;
+  right: 0;
+  transform-origin: center center;
+  transform: rotateZ(45deg) translateY(-525%);
+  font-size: calc(var(--font)/100*5.5);
+}
+#list .price {
+  background-color: #0023;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 7%;
+  left: 7%;
+  padding: 2% 4%;
+  border-radius: calc(var(--font)/100*6);
+  font-size: calc(var(--font)/100*6);
+}
+
+@media screen and (width > 100px) {
+  #list {
+    grid-template-columns: repeat(2,1fr);
+    --font: calc(var(--fw)/2);
+  }
+}
+@media screen and (width > 500px) {
+  #list {
+    grid-template-columns: repeat(3,1fr);
+    --font: calc(var(--fw)/3);
+  }
+}
+@media screen and (width > 700px) {
+  #list {
+    grid-template-columns: repeat(4,1fr);
+    --font: calc(var(--fw)/4);
+  }
+}
+@media screen and (width > 900px) {
+  #list {
+    grid-template-columns: repeat(5,1fr);
+    --font: calc(var(--fw)/5);
+  }
+}
+@media screen and (width > 1100px) {
+  #list {
+    grid-template-columns: repeat(6,1fr);
+    --font: calc(var(--fw)/6);
+  }
+}
+@media screen and (width > 1300px) {
+  #list {
+    grid-template-columns: repeat(7,1fr);
+    --font: calc(var(--fw)/7);
+  }
+}
+
+</style>
+<body>
+  <h1>Telegram Gifts Database</h1>
+
+  <div>Donate to support <3</div>
+  <div style="user-select:all">UQBEsTMky8JjYU2lF0uyWPrg_XtyPNUzix888KF424wHv-Nx</div>
+  <br>
+  - nxrix
+  <br>
+  <br>
+  
+  <h3>Supported Gifts</h3>
+  <ul>
+    <li>Plush Pepe</li>
+    <li>Precious Peach</li>
+    <li>Toy Bear</li>
+  </ul>
+  <br>
+
+  <div id="filters">
+    Model : <select id="fmodel" multiple></select>
+    Backdrop : <select id="fbackdrop" multiple></select>
+    Symbol : <select id="fsymbol" multiple></select>
+    <br>
+    <br>
+    <button id="search">Search</button>
+  </div>
+  
+  <br>
+
+  <div id="controls1" class="controls">
+    <button id="prev1">Previous</button>
+    <input type="number" id="pagei1" min="1" value="1">
+    <button id="next1">Next</button>
+  </div>
+
+  <div id="list"></div>
+
+  <div id="controls2" class="controls">
+    <button id="prev2">Previous</button>
+    <input type="number" id="pagei2" min="1" value="1">
+    <button id="next2">Next</button>
+  </div>
+
+</body>
+
+<script>
+
+const limit = 24;
+const name = window.location.hash.slice(1)||"toybear";
+let data, filtered = [], page = 1;
+
+const fix_name = n => n.replaceAll(" ","").replaceAll("-","").replaceAll("'","").toLowerCase();
+
+const get_img = (a,b,c=0) => {
+  return `https://nft.fragment.com/gift/${a}-${b}${[".small",".medium",".large",""][c]}${c<3?".jpg":".webp"}`
+}
+
+const add_gift = (c,n) => {
+  const gift = document.createElement("a");
+  gift.classList.add("item");
+  gift.href = "https://t.me/nft/"+c+"-"+n;
+
+  const img = document.createElement("img");
+  img.src = get_img(c,n,2);
+  gift.appendChild(img);
+
+  img.onerror = () => {
+    img.remove();
+    const q = document.createElement("div");
+    q.classList.add("q");
+    q.innerText = (gifts.find(i=>fix_name(i)==c)||"").replaceAll(" ","").replaceAll("-","?")+"-"+n;
+    gift.appendChild(q);
+  };
+
+  const id = document.createElement("div");
+  id.classList.add("id");
+  id.innerText = "#"+n;
+  gift.appendChild(id);
+
+  list.appendChild(gift);
+}
+
+const fix_filter = (i,l) => {
+  l.forEach((e,n) => {
+    const opt = document.createElement("option");
+    opt.value = n;
+    opt.textContent = e;
+    i.appendChild(opt);
+  });
+}
+
+const init = async () => {
+  data = await(await fetch(name+".json")).json();
+  fix_filter(fmodel,data.models);
+  fix_filter(fbackdrop,data.backdrops);
+  fix_filter(fsymbol,data.symbols);
+  [prev1,prev2].forEach(id => id.onclick = () => change_page(-1));
+  [next1,next2].forEach(id => id.onclick = () => change_page(1));
+  [pagei1,pagei2].forEach(id => {
+    id.addEventListener("keypress", e => {
+      if (e.key == "Enter") {
+        const p = parseInt(e.target.value);
+        if (!isNaN(p)) set_page(p);
+      }
+    });
+  });
+  search.onclick();
+}
+
+const display_page = () => {
+  const start = (page-1)*limit;
+  const end = start+limit;
+  list.innerHTML = "";
+  filtered.slice(start,end).forEach(line => {
+    const id = line.split(",")[0];
+    add_gift(name,id);
+  });
+}
+
+const get_selected = (i) => {
+  return Array.from(i.selectedOptions).map(o=>o.value);
+}
+
+const set_page = (p) => {
+  const m = Math.ceil(filtered.length/limit) || 1;
+  page = Math.max(1,Math.min(p,m));
+  [pagei1,pagei2].forEach(id => {
+    id.value = page;
+  });
+  display_page();
+}
+
+const change_page = (d) => {
+  set_page(page+d);
+}
+
+search.onclick = () => {
+  const models = get_selected(fmodel);
+  const backdrops = get_selected(fbackdrop);
+  const symbols = get_selected(fsymbol);
+  filtered = data.gifts.trim().split("\n").filter(line => {
+    const [id,model,backdrop,symbol] = line.split(",").map(x=>parseInt(x));
+    return (!models.length || models.includes(model.toString())) && (!backdrops.length || backdrops.includes(backdrop.toString())) && (!symbols.length || symbols.includes(symbol.toString()));
+  });
+  set_page(1);
+}
+
+window.onload = init;
+
+</script>
+
+</html>
