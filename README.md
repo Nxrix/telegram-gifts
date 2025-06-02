@@ -1,8 +1,12 @@
 # Telegram-Gifts
 Comprehensive reference for working with Telegram gifts
 
-## Gift Stats
+## Data
+- All Collections [Format1](./names.txt) [Format2](./names_fixed.txt)
+- [All Upgraded Plush Pepe gifts](./plushpepe.json)
+- [All Upgraded Toy Bear gifts](./toybear.json) (65 were refunded)
 
+## Gift Stats
 - [Telegram Gifts on Dune](https://dune.com/rdmcd/telegram-gifts)
 - [GiftStat.com](https://giftstat.com/)
 - [Gift Charts Bot](https://t.me/gift_charts_bot)
@@ -13,17 +17,12 @@ you can use these tools or other gift marketplaces to find floor price of a gift
 - [NFT GIFT Calculator Bot](https://t.me/PriceNFTbot)
 - [Gifts Floor Calculator Bot](https://t.me/giftsfloorbot)
 
-## Data
-- All Collections [Format1](./names.txt) [Format2](./names_fixed.txt)
-- [All Upgraded Plush Pepe gifts](./plushpepe.json)
-
 ## Naming Formats
 1. Gift Name — Human-readable name used in descriptions
 2. GiftName — PascalCase, often used in telegram links 
 3. giftname — Lowercase format used in URLs and paths
 
 ## Available Endpoints
-
 | Type                 | Format  | URL Pattern                                                                 |
 |----------------------|---------|-----------------------------------------------------------------------------|
 | Gift Page            | HTML    | `https://t.me/nft/[GiftName]-[id]`                                          |
@@ -36,9 +35,7 @@ you can use these tools or other gift marketplaces to find floor price of a gift
 | Collection Thumbnail | WebP    | `https://fragment.com/file/gifts/[giftname]/thumb.webp`                     |
 
 ## Scraping Gift Details
-
 Using the Gift Page URL we can get different details for each gift
-
 If you only need the gifts model, backdrop and symbol you can use this:
 ```js
 const gift = "PlushPepe-1";
@@ -53,7 +50,6 @@ Backdrop: Onyx Black
 Symbol: Illuminati
 (Optional Info)
 ```
-
 With Owner and Quantity:
 ```js
 const gift = "PlushPepe-1";
@@ -89,5 +85,4 @@ Quantity: 2 815/2 861 issued
 ---
 
 ### Donate to Support <3
-
 `UQBEsTMky8JjYU2lF0uyWPrg_XtyPNUzix888KF424wHv-Nx`
