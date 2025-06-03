@@ -6,6 +6,7 @@ Comprehensive reference for working with Telegram gifts
 - [All Upgraded Plush Pepe gifts](./plushpepe.json)
 - [All Upgraded Precious Peach gifts](./preciouspeach.json)
 - [All Upgraded Magic Potion gifts](./magicpotion.json)
+- [All Upgraded Kissed Frog gifts](./kissedfrog.json)
 - [All Upgraded Vintage Cigar gifts](./vintagecigar.json) (20 were refunded)
 - [All Upgraded Toy Bear gifts](./toybear.json) (65 were refunded)
 
