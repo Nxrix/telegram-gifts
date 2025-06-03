@@ -154,12 +154,12 @@ body {
   
   <h3>Supported Gifts</h3>
   <ul>
-    <li><a href="./db#plushpepe">Plush Pepe</a></li>
-    <li><a href="./db#preciouspeach">Precious Peach</a></li>
-    <li><a href="./db#magicpotion">Magic Potion</a></li>
-    <li><a href="./db#kissedfrog">Kissed Frog</a></li>
-    <li><a href="./db#vintagecigar">Vintage Cigar</a></li>
-    <li><a href="./db#toybear">Toy Bear</a></li>
+    <li><a href="./db?n=PlushPepe">Plush Pepe</a></li>
+    <li><a href="./db?n=PreciousPeach">Precious Peach</a></li>
+    <li><a href="./db?n=MagicPotion">Magic Potion</a></li>
+    <li><a href="./db?n=KissedFrog">Kissed Frog</a></li>
+    <li><a href="./db?n=VintageCigar">Vintage Cigar</a></li>
+    <li><a href="./db?n=ToyBear">Toy Bear</a></li>
   </ul>
   <br>
 
@@ -192,11 +192,15 @@ body {
 
 <script>
 
-const limit = 24;
-const name = window.location.hash.slice(1)||"toybear";
-let data, filtered = [], page = 1;
-
 const fix_name = n => n.replaceAll(" ","").replaceAll("-","").replaceAll("'","").toLowerCase();
+  
+const url_string = window.location.href;
+const url = new URL(url_string);
+
+const limit = 24;
+const name = fix_name(url.searchParams.get("n")||"ToyBear");
+let page = Math.max(parseInt(url.searchParams.get("p"))||0,0);
+let data, filtered = [];
 
 const get_img = (a,b,c=0) => {
   return `https://nft.fragment.com/gift/${a}-${b}${[".small",".medium",".large",""][c]}${c<3?".jpg":".webp"}`
