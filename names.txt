@@ -39,6 +39,7 @@ Loot Bag
 Love Candle
 Love Potion
 Lunar Snake
+Lush Bouquet
 Mad Pumpkin
 Magic Potion
 Mini Oscar
