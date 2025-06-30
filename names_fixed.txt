@@ -39,6 +39,7 @@ lootbag
 lovecandle
 lovepotion
 lunarsnake
+lushbouquet
 madpumpkin
 magicpotion
 minioscar
