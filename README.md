@@ -36,6 +36,7 @@ you can use these tools or other gift marketplaces to find floor price of a gift
 | Image (JPG - Small)  | JPG     | `https://nft.fragment.com/gift/[giftname]-[id].small.jpg`                   |
 | Image (WebP)         | WebP    | `https://nft.fragment.com/gift/[giftname]-[id].webp`                        |
 | Lottie Animation     | JSON    | `https://nft.fragment.com/gift/[giftname]-[id].lottie.json`                 |
+| Telegram Sticker     | TGS     | `https://nft.fragment.com/gift/[giftname]-[id].tgs`                         |
 | Collection Thumbnail | WebP    | `https://fragment.com/file/gifts/[giftname]/thumb.webp`                     |
 
 ## Scraping Gift Details
@@ -43,7 +44,7 @@ Using the Gift Page URL we can get different details for each gift
 If you only need the gifts model, backdrop and symbol you can use this:
 ```js
 const gift = "PlushPepe-1";
-const match = (await(await fetch("https://t.me/nft/"+gift)).text()).match(/<meta\s+property=["']og:description["']\s+content=["']([^"']*)["']/i);
+const match = (await(await fetch("https://t.me/nft/"+gift)).text()).match(/<meta\s+name=["']twitter:description["']\s+content=["']([^"']*)["']/i);
 return match?"Name: "+gift+"\n"+match[1]:"null";
 ```
 Example Output:
