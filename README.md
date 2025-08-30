@@ -2,7 +2,7 @@
 Comprehensive reference for working with Telegram gifts
 
 ## Data
-- All Collections [Format1](./names.txt) [Format2](./names_fixed.txt)
+- All collections: [Format1](./names.txt) [Format2](./names_fixed.txt)
 - [All Upgraded Plush Pepe gifts](./plushpepe.json)
 - [All Upgraded Precious Peach gifts](./preciouspeach.json)
 - [All Upgraded Magic Potion gifts](./magicpotion.json)
@@ -10,16 +10,17 @@ Comprehensive reference for working with Telegram gifts
 - [All Upgraded Vintage Cigar gifts](./vintagecigar.json)
 - [All Upgraded Toy Bear gifts](./toybear.json)
 
-## Gift Stats
+## Useful Links
 - [Telegram Gifts on Dune](https://dune.com/rdmcd/telegram-gifts)
 - [GiftStat.com](https://giftstat.com/)
+- [Gift Rates Bot](https://t.me/GiftRatesBot)
 - [Gift Charts Bot](https://t.me/gift_charts_bot)
-
-## Floor Prices
-you can use these tools or other gift marketplaces to find floor price of a gift ( the actuall price could be different )
+- [Peek.tg Bot](https://t.me/peektgbot)
+- [Gift Chart Stickers](https://t.me/addstickers/stickers_by_GiftRatesBot)
 - [Floor Price Stickers](https://t.me/addstickers/gift_by_tondesignrobot)
 - [NFT GIFT Calculator Bot](https://t.me/PriceNFTbot)
-- [Gifts Floor Calculator Bot](https://t.me/giftsfloorbot)
+- [Gift Changes API](https://api.changes.tg/)
+- [Gift Changes CDN](https://cdn.changes.tg/)
 
 ## Naming Formats
 1. Gift Name — Human-readable name used in descriptions
@@ -55,7 +56,7 @@ Backdrop: Onyx Black
 Symbol: Illuminati
 (Optional Info)
 ```
-With Owner and Quantity:
+With owner and quantity:
 ```js
 const gift = "PlushPepe-1";
 const rows = (await(await fetch("https://t.me/nft/"+gift)).text()).match(/<tr>.*?<\/tr>/gs);
@@ -89,5 +90,5 @@ Quantity: 2 815/2 861 issued
 
 ---
 
-### Donate to Support <3
+### Donate to support <3
 `UQBEsTMky8JjYU2lF0uyWPrg_XtyPNUzix888KF424wHv-Nx`
