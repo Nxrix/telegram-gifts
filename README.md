@@ -2,7 +2,7 @@
 Comprehensive reference for working with Telegram gifts
 
 ## Data
-- All collections: [Format1](./names.txt) [Format2](./names_fixed.txt)
+- [List of all gifts](./data/gifts_names.json)
 - [All Upgraded Plush Pepe gifts](./plushpepe.json)
 - [All Upgraded Precious Peach gifts](./preciouspeach.json)
 - [All Upgraded Magic Potion gifts](./magicpotion.json)
