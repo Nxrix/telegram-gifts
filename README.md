@@ -3,12 +3,6 @@ Comprehensive reference for working with Telegram gifts
 
 ## Data
 - [List of all gifts](./data/gifts_names.json)
-- [All Upgraded Plush Pepe gifts](./plushpepe.json)
-- [All Upgraded Precious Peach gifts](./preciouspeach.json)
-- [All Upgraded Magic Potion gifts](./magicpotion.json)
-- [All Upgraded Kissed Frog gifts](./kissedfrog.json)
-- [All Upgraded Vintage Cigar gifts](./vintagecigar.json)
-- [All Upgraded Toy Bear gifts](./toybear.json)
 
 ## Useful Links
 - [Telegram Gifts on Dune](https://dune.com/rdmcd/telegram-gifts)
@@ -40,9 +34,9 @@ Comprehensive reference for working with Telegram gifts
 | Telegram Sticker     | TGS     | `https://nft.fragment.com/gift/[giftname]-[id].tgs`                         |
 | Collection Thumbnail | WebP    | `https://fragment.com/file/gifts/[giftname]/thumb.webp`                     |
 
-## Scraping Gift Details
-Using the Gift Page URL we can get different details for each gift
-If you only need the gifts model, backdrop and symbol you can use this:
+## Getting Gift Info
+Using Telegram NFT URL we can get different details for each gift
+If you only need the model, backdrop and symbol you can use this:
 ```js
 const gift = "PlushPepe-1";
 const match = (await(await fetch("https://t.me/nft/"+gift)).text()).match(/<meta\s+name=["']twitter:description["']\s+content=["']([^"']*)["']/i);
@@ -54,7 +48,7 @@ Name: PlushPepe-1
 Model: Pumpkin
 Backdrop: Onyx Black
 Symbol: Illuminati
-(Optional Info)
+Comment: (Optional)
 ```
 With owner and quantity:
 ```js
