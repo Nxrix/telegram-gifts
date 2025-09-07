@@ -22,7 +22,6 @@ const get_gift = async (n) => {
       .split("\n")
       .map((i) => i.split(": ")[1]) || [])
     ];
-  };
 }
 
 (async()=>{
