@@ -35,7 +35,7 @@ const get_gift = async (n) => {
   const supply = await get_supply(fix_name2(name) + "-1");
   console.log(name, supply);
   for (let i = 1; i <= supply; i++) {
-    if (!list[i]||list[i].length === 1||list[i][5] === null) {
+    if (!list[i]||list[i].length === 1||list[i][4] === null) {
       const gift = await get_gift(fix_name2(name) + "-" + i);
       if (gift) {
         list[i] = gift;
@@ -46,5 +46,5 @@ const get_gift = async (n) => {
       list[i][0] = parseInt(list[i][0]);
     }
   }
-  fs.writeFileSync(filename, JSON.stringify(list, null, 2));
+  fs.writeFileSync(filename,JSON.stringify(list));
 })();
