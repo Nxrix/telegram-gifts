@@ -29,6 +29,7 @@ const get_gift = async (n) => {
   const list = [];
   const name = process.env.name;
   const supply = get_supply(fix_name2(name)+"-1");
+  console.log(name,supply);
   for (let i=1;i<=supply;i++) {
     const gift = await get_gift(fix_name2(name)+"-"+i);
     if (gift) {
