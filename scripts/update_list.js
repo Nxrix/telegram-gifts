@@ -20,7 +20,7 @@ const get_gift = async (n) => {
       )?.[1]
       .trim()
       .split("\n")
-      .map((i) => (i.includes(":") ? i.slice(i.indexOf(":") + 1) : i)) || [])
+      .map((i) => (i.includes(": ") ? i.slice(i.indexOf(": ") + 1) : i)) || [])
     ];
 }
 
@@ -34,17 +34,16 @@ const get_gift = async (n) => {
   }
   const supply = await get_supply(fix_name2(name) + "-1");
   console.log(name, supply);
-  for (let i = 1; i <= supply; i++) {
+  for (let i = 0; i < supply; i++) {
     if (!list[i]||list[i].length === 1||list[i][4] === null) {
-      const gift = await get_gift(fix_name2(name) + "-" + i);
+      const gift = await get_gift(fix_name2(name) + "-" + (i+1));
       if (gift) {
         list[i] = gift;
       } else {
         console.log(i);
       }
-    } else {
-      list[i][0] = parseInt(list[i][0]);
     }
   }
+  list = list.map(inner=>inner.map((item,index)=>typeof item === "string" && index > 0 ? item.substr(1) : item));
   fs.writeFileSync(filename,JSON.stringify(list));
 })();
